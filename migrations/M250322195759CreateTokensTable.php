@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use BeastBytes\Token\Db\TokenStorage;
 use Yiisoft\Db\Exception\InvalidConfigException;
 use Yiisoft\Db\Exception\NotSupportedException;
 use Yiisoft\Db\Migration\MigrationBuilder;
@@ -10,8 +11,6 @@ use Yiisoft\Db\Migration\TransactionalMigrationInterface;
 
 final class M250322195759CreateTokensTable implements RevertibleMigrationInterface, TransactionalMigrationInterface
 {
-    private const TOKENS_TABLE = 'yii_token';
-
     /**
      * @throws InvalidConfigException
      * @throws NotSupportedException
@@ -19,7 +18,7 @@ final class M250322195759CreateTokensTable implements RevertibleMigrationInterfa
     public function up(MigrationBuilder $b): void
     {
         $b->createTable(
-            self::TOKENS_TABLE,
+            TokenStorage::TABLE_NAME,
             [
                 'token' => 'string(127) NOT NULL PRIMARY KEY',
                 'type' => 'string(63) NOT NULL',
@@ -27,7 +26,7 @@ final class M250322195759CreateTokensTable implements RevertibleMigrationInterfa
                 'valid_until' => 'integer NOT NULL',
             ],
         );
-        $b->createIndex(self::TOKENS_TABLE, 'idx-' . self::TOKENS_TABLE . '-type', 'type');
+        $b->createIndex(TokenStorage::TABLE_NAME, 'idx-' . TokenStorage::TABLE_NAME . '-type', 'type');
     }
 
     /**
@@ -36,6 +35,6 @@ final class M250322195759CreateTokensTable implements RevertibleMigrationInterfa
      */
     public function down(MigrationBuilder $b): void
     {
-        $b->dropTable(self::TOKENS_TABLE);
+        $b->dropTable(TokenStorage::TABLE_NAME);
     }
 }

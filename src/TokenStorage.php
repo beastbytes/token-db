@@ -30,6 +30,8 @@ final class TokenStorage implements TokenStorageInterface
 {
     use CreateTokenTrait;
 
+    public const TABLE_NAME = 'yii_token';
+
     /**
      * @param ConnectionInterface $database Yii database connection instance.
      *
@@ -38,7 +40,7 @@ final class TokenStorage implements TokenStorageInterface
      */
     public function __construct(
         private readonly ConnectionInterface $database,
-        private readonly string $tableName = 'yii_token'
+        private readonly string $tableName
     )
     {
     }
