@@ -1,5 +1,5 @@
 # BeastBytes Token DB
-PHP file storage for the [BeastBytes Token](https://github.com/beastbytes/token.git) package.
+Database storage for the [BeastBytes Token](https://github.com/beastbytes/token.git) package.
 
 Do not use this package directly;
 use TokenManager in [BeastBytes Token](https://github.com/beastbytes/token.git) package.
