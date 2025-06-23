@@ -11,7 +11,11 @@ return [
     TokentorageInterface::class => [
         'class' => TokenStorage::class,
         '__construct()' => [
-            'tableName' => $params['beastbytes/token']['tableName'],
+            'tableName' => array_key_exists('beastbytes/token', $params)
+                && array_key_exists('tableName', $params['beastbytes/token'])
+                ? $params['beastbytes/token']['tableName']
+                : TokenStorage::TABLE_NAME
+            ,
         ],
     ]
 ];
