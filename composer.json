@@ -15,13 +15,13 @@
         "php": "^8.1",
         "beastbytes/token": "dev-master",
         "yiisoft/db": "dev-master",
-        "yiisoft/db-migration": "^1.1"
+        "yiisoft/db-migration": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.0",
         "vimeo/psalm": "^5.0",
         "yiisoft/cache": "^3.0",
-        "yiisoft/db-sqlite": "^1.0"
+        "yiisoft/db-sqlite": "dev-master"
     },
     "autoload": {
         "psr-4": {
